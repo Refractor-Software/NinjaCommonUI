@@ -1,6 +1,7 @@
 ﻿// Ninja Bear Studio Inc., all rights reserved.
 #include "NinjaCommonUIFunctionLibrary.h"
 
+#include "CommonActionWidget.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/NinjaCommonHUD.h"
 #include "GameFramework/Pawn.h"
@@ -30,4 +31,14 @@ ANinjaCommonHUD* UNinjaCommonUIFunctionLibrary::TryGetHUD(const AActor* Owner)
 	}
 
 	return nullptr;
+}
+
+void UNinjaCommonUIFunctionLibrary::ProgressActionWidget(UCommonActionWidget* ActionWidget, float HeldPercent)
+{
+	if (!IsValid(ActionWidget))
+	{
+		return;
+	}
+	
+	ActionWidget->OnActionProgress(HeldPercent);
 }

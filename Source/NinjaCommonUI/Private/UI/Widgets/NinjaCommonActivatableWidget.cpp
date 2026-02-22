@@ -68,9 +68,9 @@ bool UNinjaCommonActivatableWidget::RegisterInputRow(const FNinjaDefaultInputAct
 			HandleHoldInputActionStarted(InputAction.RowName);
 		});
 
-		BindArgs.OnHoldActionProgressed.BindLambda([&, InputAction](const float ElapsedTime)
+		BindArgs.OnHoldActionProgressed.BindLambda([&, InputAction](const float ElapsedTimePercent)
 		{
-			HandleHoldInputActionProgressed(InputAction.RowName, ElapsedTime);
+			HandleHoldInputActionProgressed(InputAction.RowName, ElapsedTimePercent);	
 		});
 
 		BindArgs.OnHoldActionReleased.BindLambda([&, InputAction]()
@@ -110,7 +110,7 @@ void UNinjaCommonActivatableWidget::HandleHoldInputActionStarted_Implementation(
 	// Handled by concrete widgets.
 }
 
-void UNinjaCommonActivatableWidget::HandleHoldInputActionProgressed_Implementation(FName ActionName, float ElapsedTime)
+void UNinjaCommonActivatableWidget::HandleHoldInputActionProgressed_Implementation(FName ActionName, float ElapsedTimePercent)
 {
 	// Handled by concrete widgets.
 }

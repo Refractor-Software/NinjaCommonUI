@@ -115,7 +115,7 @@ protected:
 	 * Handles the progress of a hold action.
 	 */
 	UFUNCTION(BlueprintNativeEvent, Category = "NBS|Common UI|Widgets")
-	void HandleHoldInputActionProgressed(FName ActionName, float ElapsedTime);
+	void HandleHoldInputActionProgressed(FName ActionName, float ElapsedTimePercent);
 
 	/**
 	 * Handles a hold action that has been cancelled.

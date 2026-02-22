@@ -118,6 +118,17 @@ UCommonActivatableWidget* ANinjaCommonHUD::ShowLoot()
 	return PushWidgetToStack(Tag_UI_Layer_Game, LootWidgetClass);
 }
 
+UCommonActivatableWidget* ANinjaCommonHUD::ShowVendor()
+{
+	if (!IsValid(VendorWidgetClass))
+	{
+		CUI_LOG(Warning, "Vendor Widget is not set.");
+		return nullptr;
+	}
+	
+	return PushWidgetToStack(Tag_UI_Layer_Game, VendorWidgetClass);
+}
+
 UCommonActivatableWidget* ANinjaCommonHUD::PushWidgetToStack(const FGameplayTag StackTag, const TSubclassOf<UCommonActivatableWidget>& WidgetClass)
 {
 	UNinjaCommonGameplayWidget* CurrentGameplayWidget = GetGameplayWidget();

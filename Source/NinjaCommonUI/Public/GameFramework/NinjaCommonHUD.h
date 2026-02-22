@@ -74,6 +74,13 @@ public:
 	UCommonActivatableWidget* ShowLoot();
 	
 	/**
+	 * Shows the Vendor Window, instantiating one if necessary.
+	 * Usually the widget is responsible for deactivating itself. 
+	 */
+	UFUNCTION(BlueprintCallable, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
+	UCommonActivatableWidget* ShowVendor();	
+	
+	/**
 	 * Provides the Gameplay Widget instantiated by this HUD. 
 	 */
 	UFUNCTION(BlueprintPure, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
@@ -110,6 +117,10 @@ protected:
 	/** The widget for the Loot Window. */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
 	TSubclassOf<UCommonActivatableWidget> LootWidgetClass;
+	
+	/** The widget for the Vendor Window. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
+	TSubclassOf<UCommonActivatableWidget> VendorWidgetClass;
 	
 	/**
 	 * The HUD must be prepared to initialize the pawn after Begin Play.
