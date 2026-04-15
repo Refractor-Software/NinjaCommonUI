@@ -31,7 +31,12 @@ USTRUCT(BlueprintType)
 struct NINJACOMMONUI_API FNinjaInputActionBindingHandle
 {
 	GENERATED_BODY()
+	
 	FUIActionBindingHandle Handle;
+	
+	bool IsValid() const;
+	void Unregister();
+	
 };
 
 /**
@@ -46,11 +51,6 @@ class NINJACOMMONUI_API UNinjaCommonActivatableWidget : public UCommonActivatabl
 	GENERATED_BODY()
 
 public:
-
-	// -- Begin Widget implementation
-	virtual void NativeConstruct() override;
-	virtual void NativeDestruct() override;
-	// -- End Widget implementation
 
 	// -- Begin ActivatableWidget implementation
 	virtual TOptional<FUIInputConfig> GetDesiredInputConfig() const override;
@@ -74,6 +74,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = Input)
 	TArray<FNinjaDefaultInputActionRow> InputRows;
 
+	// -- Begin Widget implementation
+	virtual void NativeConstruct() override;
+	virtual void NativeDestruct() override;
+	// -- End Widget implementation
+	
 	/**
 	 * Registers all default Input Rows set to this widget.
 	 */

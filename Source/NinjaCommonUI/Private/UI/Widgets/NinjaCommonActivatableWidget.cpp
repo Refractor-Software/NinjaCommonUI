@@ -15,6 +15,19 @@ void UNinjaCommonActivatableWidget::NativeDestruct()
 	Super::NativeDestruct();
 }
 
+bool FNinjaInputActionBindingHandle::IsValid() const
+{
+	return Handle.IsValid();
+}
+
+void FNinjaInputActionBindingHandle::Unregister()
+{
+	if (Handle.IsValid())
+	{
+		Handle.Unregister();	
+	}
+}
+
 TOptional<FUIInputConfig> UNinjaCommonActivatableWidget::GetDesiredInputConfig() const
 {
 	const bool bHideCursorDuringViewportCapture = !bShowMouseCursor;
