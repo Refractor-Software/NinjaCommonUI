@@ -49,21 +49,21 @@ protected:
 	 * Stack used to push widgets relative to the primary gameplay.
 	 * This is where you'd add gameplay elements like HUD parts, quick slots, etc.
 	 */
-	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite, Category = "Stacks", meta = (BindWidget))
 	TObjectPtr<UCommonActivatableWidgetStack> GameStack;
 
 	/**
 	 * Stack used to push menus that will be on top of any gameplay UI.
 	 * This is where you'd add non-gameplay-related windows like pause or settings menu.
 	 */
-	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite, Category = "Stacks", meta = (BindWidget))
 	TObjectPtr<UCommonActivatableWidgetStack> MenuStack;
 
 	/**
 	 * Stack used to push dialogs that will be on top of any both gameplay and menu UIs.
 	 * This is where you'd add confirmation or error messages, the highest UI elements.
 	 */
-	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite, Category = "Stacks", meta = (BindWidget))
 	TObjectPtr<UCommonActivatableWidgetStack> DialogStack;
 	
 	/**
