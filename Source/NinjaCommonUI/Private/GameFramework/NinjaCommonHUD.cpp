@@ -2,7 +2,6 @@
 #include "GameFramework/NinjaCommonHUD.h"
 
 #include "NinjaCommonUILog.h"
-#include "NinjaCommonUITags.h"
 #include "Blueprint/UserWidget.h"
 #include "UI/Widgets/NinjaCommonGameplayWidget.h"
 
@@ -72,61 +71,6 @@ void ANinjaCommonHUD::ToggleActivatableWidget(TObjectPtr<UCommonActivatableWidge
 	}
 	
 	Widget = ActivationFunction();	
-}
-
-UCommonActivatableWidget* ANinjaCommonHUD::ShowInGameMenu()
-{
-	if (!IsValid(InGameMenuClass))
-	{
-		CUI_LOG(Warning, "In-Game Menu Widget is not set.");
-		return nullptr;
-	}
-
-	return PushWidgetToStack(Tag_UI_Layer_Menu, InGameMenuClass);
-}
-
-UCommonActivatableWidget* ANinjaCommonHUD::ShowInventory()
-{
-	if (!IsValid(InventoryWidgetClass))
-	{
-		CUI_LOG(Warning, "Inventory Widget is not set.");
-		return nullptr;
-	}
-	
-	return PushWidgetToStack(Tag_UI_Layer_Menu, InventoryWidgetClass);
-}
-
-UCommonActivatableWidget* ANinjaCommonHUD::ShowStorage()
-{
-	if (!IsValid(StorageWidgetClass))
-	{
-		CUI_LOG(Warning, "Storage Widget is not set.");
-		return nullptr;
-	}
-	
-	return PushWidgetToStack(Tag_UI_Layer_Game, StorageWidgetClass);
-}
-
-UCommonActivatableWidget* ANinjaCommonHUD::ShowLoot()
-{
-	if (!IsValid(LootWidgetClass))
-	{
-		CUI_LOG(Warning, "Loot Widget is not set.");
-		return nullptr;
-	}
-	
-	return PushWidgetToStack(Tag_UI_Layer_Game, LootWidgetClass);
-}
-
-UCommonActivatableWidget* ANinjaCommonHUD::ShowVendor()
-{
-	if (!IsValid(VendorWidgetClass))
-	{
-		CUI_LOG(Warning, "Vendor Widget is not set.");
-		return nullptr;
-	}
-	
-	return PushWidgetToStack(Tag_UI_Layer_Game, VendorWidgetClass);
 }
 
 UCommonActivatableWidget* ANinjaCommonHUD::PushWidgetToStack(const FGameplayTag StackTag, const TSubclassOf<UCommonActivatableWidget>& WidgetClass)

@@ -46,41 +46,6 @@ public:
 	void RemoveAsynchronousOperation(FGameplayTag OperationTag);
 	
 	/**
-	 * Shows the In-Game Menu (or "Pause Menu"), usually containing options such as settings, quit, etc.
-	 * Usually the widget is responsible for deactivating itself.
-	 */
-	UFUNCTION(BlueprintCallable, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
-	UCommonActivatableWidget* ShowInGameMenu();
-	
-	/**
-	 * Shows the Inventory Window, instantiating one if necessary.
-	 * Usually the widget is responsible for deactivating itself. 
-	 */
-	UFUNCTION(BlueprintCallable, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
-	UCommonActivatableWidget* ShowInventory();
-
-	/**
-	 * Shows the Storage Window, instantiating one if necessary.
-	 * Usually the widget is responsible for deactivating itself. 
-	 */
-	UFUNCTION(BlueprintCallable, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
-	UCommonActivatableWidget* ShowStorage();
-	
-	/**
-	 * Shows the Loot Window, instantiating one if necessary.
-	 * Usually the widget is responsible for deactivating itself. 
-	 */
-	UFUNCTION(BlueprintCallable, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
-	UCommonActivatableWidget* ShowLoot();
-	
-	/**
-	 * Shows the Vendor Window, instantiating one if necessary.
-	 * Usually the widget is responsible for deactivating itself. 
-	 */
-	UFUNCTION(BlueprintCallable, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
-	UCommonActivatableWidget* ShowVendor();	
-	
-	/**
 	 * Provides the Gameplay Widget instantiated by this HUD. 
 	 */
 	UFUNCTION(BlueprintPure, BlueprintCosmetic, Category = "NBS|Common UI|HUD")
@@ -101,26 +66,6 @@ protected:
 	/** The main widget for the Gameplay. Will provide the activatable stack. */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
 	TSubclassOf<UNinjaCommonGameplayWidget> GameplayWidgetClass;
-
-	/** The widget for the in-game menu. */
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
-	TSubclassOf<UCommonActivatableWidget> InGameMenuClass;
-	
-	/** The widget for the Inventory Window. */
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
-	TSubclassOf<UCommonActivatableWidget> InventoryWidgetClass;
-
-	/** The widget for any external storage related to an Inventory. */
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
-	TSubclassOf<UCommonActivatableWidget> StorageWidgetClass;
-	
-	/** The widget for the Loot Window. */
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
-	TSubclassOf<UCommonActivatableWidget> LootWidgetClass;
-	
-	/** The widget for the Vendor Window. */
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
-	TSubclassOf<UCommonActivatableWidget> VendorWidgetClass;
 	
 	/**
 	 * The HUD must be prepared to initialize the pawn after Begin Play.
